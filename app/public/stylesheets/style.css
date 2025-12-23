@@ -1,0 +1,330 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #2d3748;
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Шапка */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+/* Элементы управления */
+.controls {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+input[type="text"],
+input[type="button"],
+select {
+  border: 2px solid transparent;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  color: #2d3748;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input[type="button"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  min-width: 120px;
+}
+
+input[type="button"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+input[type="button"]:active {
+  transform: translateY(0);
+}
+
+/* Основной контейнер */
+.container {
+  display: flex;
+  margin-top: 12rem;
+  padding: 2rem;
+  gap: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Панели */
+.panel {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.panel:hover {
+  transform: translateY(-5px);
+}
+
+.left-panel {
+  overflow-x: auto;
+  min-height: 500px;
+}
+
+.right-panel h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.right-panel h2::before {
+  content: "✨";
+  font-size: 1.2rem;
+}
+
+/* Формы */
+form label {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  background: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-actions input[type="button"] {
+  flex: 1;
+}
+
+/* Таблица */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+
+tr {
+  transition: all 0.3s ease;
+}
+
+tr:hover {
+  background: rgba(102, 126, 234, 0.05);
+  transform: scale(1.01);
+}
+
+/* Стили для статусов */
+.status-active {
+  background: #48bb78;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.status-inactive {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+/* Уведомления */
+.notification {
+  position: fixed;
+  top: 100px;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+  z-index: 1000;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+    color: #e2e8f0;
+  }
+  
+  .header,
+  .panel,
+  input[type="text"],
+  input[type="button"],
+  select,
+  form input[type="text"],
+  form textarea {
+    background: rgba(45, 55, 72, 0.95);
+    color: #e2e8f0;
+    border-color: #4a5568;
+  }
+  
+  input[type="button"] {
+    background: linear-gradient(135deg, #805ad5 0%, #d53f8c 100%);
+  }
+  
+  table {
+    color: #e2e8f0;
+  }
+  
+  tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    margin-top: 14rem;
+    padding: 1rem;
+  }
+  
+  .panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 1rem;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+  }
+  
+  input[type="text"],
+  input[type="button"],
+  select {
+    width: 100%;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  th, td {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+

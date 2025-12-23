@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset="utf-8")
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script(src="/js/wonders.js")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+
+  body
+    .header
+      h1 Чудеса света
+
+      .controls
+        input(type="text", id="select_id", placeholder="ID")
+        input(type="button", id="search", value="Поиск")
+        input(type="button", id="select", value="Выбор")
+        input(type="button", id="new", value="Новый")
+        input(type="button", id="delete", value="Удалить")
+
+    .container
+      .panel.left-panel
+        h2 Список чудес
+        #wonder_list
+
+      .panel.right-panel
+        h2 Редактирование
+ 
+
+        form#wonder_form
+          label
+            | Название:
+            input(type="text", name="name")
+          label
+            | Локация:
+            input(type="text", name="location")
+          label
+            | Описание:
+            input(type="text", name="description")
+          label
+            | Построено:
+            input(type="text", name="built")
+
+          .form-actions
+            input(type="button", id="add", value="Добавить")
+            input(type="button", id="update", value="Обновить")
